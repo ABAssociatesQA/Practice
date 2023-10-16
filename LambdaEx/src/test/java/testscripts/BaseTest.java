@@ -22,7 +22,7 @@ import testdata.Constants;
 
 public class BaseTest {
 	
-	ExtentSparkReporter esr;
+	ExtentSparkReporter esr1;
 	ExtentReports extentReports;
 	ExtentTest test;
 	
@@ -34,9 +34,9 @@ public class BaseTest {
 	
 	@BeforeSuite
 	public void beforeSuite() {
-		esr=new ExtentSparkReporter("target/ExecutionReport.html");
+		esr1=new ExtentSparkReporter("target/ExecutionReport.html");
 		extentReports=new ExtentReports();
-		extentReports.attachReporter(esr);
+		extentReports.attachReporter(esr1);
 	}
 	
 	@AfterSuite
