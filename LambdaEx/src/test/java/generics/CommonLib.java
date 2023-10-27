@@ -16,10 +16,14 @@ public class CommonLib {
 		
 	}
 	public void click(WebElement element, String webelementName) {
+		try {
 		test.info("Click on "+webelementName);
 		Reporter.log("Click on "+webelementName,true);
 		element.click();
 		smartSleep();
+		}catch(Exception e) {
+			test.fail(webelementName+" is not avaiable");
+		}
 		
 	}
 	

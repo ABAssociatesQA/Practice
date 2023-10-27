@@ -12,7 +12,7 @@ public class Browser {
 	public WebDriver getBrowser(String browserName) {
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
-			driverPath="../LambdaEx/Drivers/116/chromedriver.exe";
+			driverPath="../LambdaEx/Drivers/117/chromedriver.exe";
 			System.setProperty("webdriver.chrome.driver", driverPath);
 			ChromeOptions options=new ChromeOptions();
 			options.addArguments("--remote-allow-origins=*");

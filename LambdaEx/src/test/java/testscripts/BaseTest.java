@@ -3,11 +3,11 @@ package testscripts;
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -28,6 +28,7 @@ public class BaseTest {
 	
 	WebDriver driver;
 	CommonLib commonLibObj;
+	SoftAssert softAssertObj;
 	
 	HomePage homePageObj;
 	AlertPage alertPageObj;
@@ -46,6 +47,8 @@ public class BaseTest {
 	
 	@BeforeMethod
 	public void beforeMethod(Method method) {
+		softAssertObj=new SoftAssert();
+		
 		test=extentReports.createTest(method.getName());
 		
 		Reports.info("launch the browser:"+Constants.browserName, test);
@@ -62,8 +65,11 @@ public class BaseTest {
 	
 	@AfterMethod
 	public void afterMethos() {
+		softAssertObj.assertAll();
 		Reports.info("Close the browser", test);
 		driver.quit();
 	}
 
+	//hard assertion
+	//softassertion
 }
